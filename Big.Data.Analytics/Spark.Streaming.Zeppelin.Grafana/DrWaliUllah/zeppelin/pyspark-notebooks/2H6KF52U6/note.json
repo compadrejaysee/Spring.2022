@@ -1,0 +1,74 @@
+{
+  "paragraphs": [
+    {
+      "text": "%sh\r\nimport os\r\nos.environ[\u0027PYSPARK_SUBMIT_ARGS\u0027] \u003d \u0027--packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.0.2 pyspark-shell\u0027\r\n#    Spark\r\nfrom pyspark import SparkContext\r\n#    Spark Streaming\r\nfrom pyspark.streaming import StreamingContext\r\n#    Kafka\r\nfrom pyspark.streaming.kafka import KafkaUtils\r\n#    json parsing\r\nimport json",
+      "user": "anonymous",
+      "dateUpdated": "2022-05-31 05:15:23.765",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "bash: import: command not found\nbash: line 1: os.environ[PYSPARK_SUBMIT_ARGS]: command not found\nfrom: can\u0027t read /var/mail/pyspark\nfrom: can\u0027t read /var/mail/pyspark.streaming\nfrom: can\u0027t read /var/mail/pyspark.streaming.kafka\nbash: line 9: import: command not found\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "ExitValue: 127"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1653900725202_278880807",
+      "id": "20220530-085205_272198230",
+      "dateCreated": "2022-05-30 08:52:05.202",
+      "dateStarted": "2022-05-31 05:15:23.790",
+      "dateFinished": "2022-05-31 05:15:23.813",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1653901483289_-969416883",
+      "id": "20220530-090443_1726991133",
+      "dateCreated": "2022-05-30 09:04:43.289",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Untitled Note 1",
+  "id": "2H6KF52U6",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "flink:existing_process": [],
+    "producer:shared_process": [],
+    "sh:shared_process": [],
+    "consumer:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
