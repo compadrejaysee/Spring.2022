@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "08f57a1a-6938-4bcc-9f56-714c2103cfb8",
+		"name": "IngestAPI-Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test Date Validation - Good",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"video_id\":\"2kyS6SvSYSE\",\"trending_date\":\"17.14.11\",\"title\":\"WE WANT TO TALK ABOUT OUR MARRIAGE\",\"channel_title\":\"CaseyNeistat\",\"category_id\":22, \"publish_time\":\"2017-11-13T17:13:01.000Z\",\"views\":748374,\"likes\":57527,\"dislikes\":2966,\"comment_count\":15954}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:80/videoitem",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"videoitem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Date Validation - Bad date",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"video_id\":\"2kyS6SvSYSE\",\"trending_date\":\"17.14.11a\",\"title\":\"WE WANT TO TALK ABOUT OUR MARRIAGE\",\"channel_title\":\"CaseyNeistat\",\"category_id\":22, \"publish_time\":\"2017-11-13T17:13:01.000Z\",\"views\":748374,\"likes\":57527,\"dislikes\":2966,\"comment_count\":15954}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/videoitem",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"videoitem"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
