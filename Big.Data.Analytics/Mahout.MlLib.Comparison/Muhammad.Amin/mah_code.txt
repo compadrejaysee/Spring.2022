@@ -1,0 +1,44 @@
+
+docker cp gsd_train_7.csv mahout_container:/apache/
+
+
+docker exec -it mahot_container /bin/bash
+
+# mahout
+./mahout/bin/mahout spark-shell
+
+
+
+
+import org.apache.mahout.math.algorithms.regression.OrdinaryLeastSquares
+import org.apache.spark.sql.types.{StringType, StructType}
+import spark.implicits._
+import Array.ofDim
+
+
+val dft = spark.read.option("header","true").csv("/data/gsd_train_7.csv")
+dft.count
+val rowDF = dft.select(array(dft.columns.map(col):_*) as "row")
+val mat = rowDF.collect.map(_.getSeq[String](0).toArray)
+val train = mat.map(_.map(_.toDouble))
+val rddA = sc.parallelize(train)
+val drmRddA: DrmRdd[Double] = rddA.map(a => new DenseVector(a)).zipWithIndex().map(t => (t._2, t._1))
+drmRddA.collect
+val train = drmWrap(rdd= drmRddA)
+train.collect
+val x_train = train(::, 0 until 7)
+x_train.collect
+val y_train = train(::, 7 until 8)
+y_train.collect
+
+val t1 = System.nanoTime
+val model = new OrdinaryLeastSquares[Double]().fit(x_train, y_train)
+val duration_fit = (System.nanoTime - t1) / 1e9d
+println("Model Fitting time in seconds : ",  duration_fit)
+println(model.summary)
+
+val t1 = System.nanoTime
+val ypred = model.predict(x_train)
+val duration_predict = (System.nanoTime - t1) / 1e9d
+println("Model predicting time in seconds : ",  duration_predict)
+

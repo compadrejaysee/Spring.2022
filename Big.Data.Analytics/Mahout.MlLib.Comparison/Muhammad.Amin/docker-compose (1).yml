@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+
+  mahout:
+    image: michabirklbauer/mahout:latest
+    container_name: mahout-container
+
+    deploy:
+      resources:
+        limits:
+          memory: 10000M
+        reservations:
+          memory: 10000M
+    stdin_open: true
+   
+    volumes: 
+      - 'F:/BDA-project/data:/data/'
+    restart: always
+    ports:
+      - 9000:9000
+    
+  mllib:
+    image: jupyter/pyspark-notebook
+    container_name: mllib-container
+    deploy:
+      resources:
+        limits:
+          memory: 10000M
+        reservations:
+          memory: 10000M
+
+    volumes: 
+      - 'F:/BDA-project/data:/home/jovyan/notebooks'
+    restart: always
+    ports:
+        - "10000:8888"
+    
+    
+         
+
+    
