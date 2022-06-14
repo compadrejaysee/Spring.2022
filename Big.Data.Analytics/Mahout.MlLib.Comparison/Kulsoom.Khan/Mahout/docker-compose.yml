@@ -1,0 +1,10 @@
+zeppelin:
+    image: apache/mahout-zeppelin:14.1
+    container_name: zeppelin
+    environment:
+        ZEPPELIN_PORT: 8080
+    ports:
+        - 8080:8080
+    volumes:
+        - /zeppelin/data:/usr/zeppelin/data
+        - /zeppelin/notebook:/usr/zeppelin/notebook
